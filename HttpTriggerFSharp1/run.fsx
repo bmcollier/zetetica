@@ -33,7 +33,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
 
             if not (String.IsNullOrEmpty(data)) then
                 let named = JsonConvert.DeserializeObject<Named>(data)
-                return req.CreateResponse(HttpStatusCode.OK, "Hello " + named.name + ", you are " + named.age.ToString());
+                return req.CreateResponse(HttpStatusCode.OK, "Hello " + named.name + ", you are aged " + named.age.ToString());
             else
                 return req.CreateResponse(HttpStatusCode.BadRequest, "Specify a Name value");
     } |> Async.RunSynchronously
